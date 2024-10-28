@@ -1,9 +1,9 @@
 package org.sanjay.javabrains.messanger.resources;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.sanjay.javabrains.messanger.model.Comment;
+import org.sanjay.javabrains.messanger.model.CommentListWrapper;
 import org.sanjay.javabrains.messanger.service.CommentService;
 
 import jakarta.ws.rs.Consumes;
@@ -15,20 +15,28 @@ import jakarta.ws.rs.Path;
 import jakarta.ws.rs.PathParam;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
+import jakarta.ws.rs.core.Response;
 
 @Path("/")
-@Produces(MediaType.APPLICATION_JSON)
+@Produces(value = {MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
 @Consumes(MediaType.APPLICATION_JSON)
 public class CommentsResource {
 	@GET
 	@Path("/{commentId}")
-	public Comment getComment(@PathParam("commentId") long commentId, @PathParam("messageId") long messageId) {
-		return new CommentService().getComment(messageId, commentId);
+	public Response getComment(@PathParam("commentId") long commentId, @PathParam("messageId") long messageId) {
+		System.out.println("Inside get comment ====>");
+		//return new CommentService().getComment(messageId, commentId);
+		return Response.ok().entity(new CommentService().getComment(messageId, commentId)).build();
 	}
 
 	@GET
-	public List<Comment> getAllComment(@PathParam("messageId") long messageId) {
-		return new CommentService().getAllComments(messageId);
+	public Response getAllComment(@PathParam("messageId") long messageId) {
+		System.out.println("INside get all comments");
+		//return new CommentService().getAllComments(messageId);
+		List<Comment> commentLst = new CommentService().getAllComments(messageId);
+		CommentListWrapper commentWrapper = new CommentListWrapper();
+		commentWrapper.setComment(commentLst);
+		return Response.ok().entity(commentWrapper).build();
 	}
 
 	@POST

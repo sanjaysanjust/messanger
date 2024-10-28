@@ -3,6 +3,7 @@ org/sanjay/javabrains/messanger/MyResource.class
 org/sanjay/javabrains/messanger/service/MessageService.class
 org/sanjay/javabrains/messanger/resources/CommentsResource.class
 org/sanjay/javabrains/messanger/resources/bean/MessageFillterBean.class
+org/sanjay/javabrains/messanger/model/CommentListWrapper.class
 org/sanjay/javabrains/messanger/model/Comment.class
 org/sanjay/javabrains/messanger/model/Profile.class
 org/sanjay/javabrains/messanger/service/CommentService.class
@@ -12,4 +13,5 @@ org/sanjay/javabrains/messanger/resources/InjectDemoResource.class
 org/sanjay/javabrains/messanger/exception/DataNotFoundExceptionMapper.class
 org/sanjay/javabrains/messanger/model/Message.class
 org/sanjay/javabrains/messanger/database/DataBaseClass.class
+org/sanjay/javabrains/messanger/model/MessageListWrapper.class
 org/sanjay/javabrains/messanger/model/ErrorMessage.class

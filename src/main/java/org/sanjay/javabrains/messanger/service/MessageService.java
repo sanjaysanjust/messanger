@@ -66,6 +66,7 @@ public class MessageService {
 
 		message.setId(messages.size() + 1);
 		message.setDate(new Date());
+		message.setAuthor(message.getAuthor());
 		messages.put(message.getId(), message);
 		return message;
 	}

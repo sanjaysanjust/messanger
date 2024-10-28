@@ -23,7 +23,7 @@ public class CommentService {
 	}
 	
 	public Comment getComment(Long messageId,Long commentId) {
-		
+		System.out.println("Inside service getComment");
 		return messages.get(messageId).getComments().get(commentId);
 	}
 
